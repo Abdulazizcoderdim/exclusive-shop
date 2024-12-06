@@ -2,7 +2,6 @@ import { valueCount } from '@/hooks/useCountStar';
 import { cn } from '@/lib/utils';
 import { addItem, deleteItem } from '@/redux/cartSlice';
 import { addToWishList, deleteWishList } from '@/redux/wishlistSlice';
-import { authStore } from '@/store/auth.store';
 import { ProductType } from '@/type';
 import { Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -22,7 +21,6 @@ const NewsProduct = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuth } = authStore();
 
   // Redux store'dan savatdagi mahsulotlarni olish
   const cartItems = useSelector((state: any) => state.cart.cart);
@@ -53,7 +51,6 @@ const NewsProduct = () => {
   }, []);
 
   const handleCartToggle = (product: ProductType) => {
-   
     const isInCart = cartItems.some(
       (item: ProductType) => item._id === product._id
     );
@@ -77,7 +74,6 @@ const NewsProduct = () => {
 
   // wishlist add and delete
   const handleWishListToggle = (product: ProductType) => {
-    
     const isInWishList = wishlistItems.some(
       (item: ProductType) => item._id === product._id
     );

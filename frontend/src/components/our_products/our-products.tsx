@@ -2,7 +2,6 @@ import { valueCount } from '@/hooks/useCountStar';
 import { cn } from '@/lib/utils';
 import { addItem, deleteItem } from '@/redux/cartSlice';
 import { addToWishList, deleteWishList } from '@/redux/wishlistSlice';
-import { authStore } from '@/store/auth.store';
 import { ProductType } from '@/type';
 import { ArrowLeft, ArrowRight, Heart } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
@@ -25,7 +24,6 @@ const OurProducts = () => {
   const swiperRef = useRef<SwiperRef>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuth } = authStore();
 
   // Redux store'dan savatdagi mahsulotlarni olish
   const cartItems = useSelector((state: any) => state.cart.cart);

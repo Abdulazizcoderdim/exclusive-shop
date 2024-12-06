@@ -4,7 +4,6 @@ import $axios from '@/http';
 import { cn } from '@/lib/utils';
 import { addItem, deleteItem } from '@/redux/cartSlice';
 import { addToWishList, deleteWishList } from '@/redux/wishlistSlice';
-import { authStore } from '@/store/auth.store';
 import { ProductType } from '@/type';
 import { Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -23,7 +22,6 @@ const Reletaed = ({ id }: { id: string | undefined }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuth } = authStore();
 
   // Redux store'dan savatdagi mahsulotlarni olish
   const cartItems = useSelector((state: any) => state.cart.cart);
@@ -61,7 +59,6 @@ const Reletaed = ({ id }: { id: string | undefined }) => {
   console.log(todayProduct);
 
   const handleCartToggle = (product: ProductType) => {
-    
     const isInCart = cartItems.some(
       (item: ProductType) => item._id === product._id
     );
@@ -85,7 +82,6 @@ const Reletaed = ({ id }: { id: string | undefined }) => {
 
   // wishlist add and delete
   const handleWishListToggle = (product: ProductType) => {
-    
     const isInWishList = wishlistItems.some(
       (item: ProductType) => item._id === product._id
     );

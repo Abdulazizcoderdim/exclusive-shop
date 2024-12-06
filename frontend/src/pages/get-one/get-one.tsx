@@ -5,14 +5,13 @@ import { valueCount } from '@/hooks/useCountStar';
 import $axios from '@/http';
 import { cn } from '@/lib/utils';
 import { addToWishList, deleteWishList } from '@/redux/wishlistSlice';
-import { authStore } from '@/store/auth.store';
 import { ProductType } from '@/type';
 import { Heart, Minus, Plus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { BsHeartFill } from 'react-icons/bs';
 import { FaStar } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import Reletaed from './related';
 
@@ -23,8 +22,6 @@ const GetOne = () => {
   const { id } = useParams();
   const [oneProduct, setOneProduct] = useState<ProductType>();
   const dispatch = useDispatch();
-  const nvigate = useNavigate();
-  const { isAuth } = authStore();
   const [image, setImage] = useState<string>();
 
   // wishlistdagi ma'lumotlar

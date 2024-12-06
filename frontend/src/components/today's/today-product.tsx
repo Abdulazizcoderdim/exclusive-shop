@@ -3,7 +3,6 @@ import { useDiscount } from '@/hooks/useDiscount';
 import { cn } from '@/lib/utils';
 import { addItem, deleteItem } from '@/redux/cartSlice';
 import { addToWishList, deleteWishList } from '@/redux/wishlistSlice';
-import { authStore } from '@/store/auth.store';
 import { ProductType } from '@/type';
 import { ArrowLeft, ArrowRight, Heart } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
@@ -25,7 +24,6 @@ const TodayProduct = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const swiperRef = useRef<SwiperRef>(null);
   const dispatch = useDispatch();
-  const { isAuth } = authStore();
   const navigate = useNavigate();
 
   // Redux store'dan savatdagi mahsulotlarni olish
